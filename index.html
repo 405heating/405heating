@@ -69,8 +69,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 .fg{margin-bottom:12px}
 .fg label{display:block;font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
 .fg input,.fg select{width:100%;padding:10px 12px;border-radius:3px;border:1.5px solid #dde2ef;font-family:'DM Sans',sans-serif;font-size:14px;color:#0a1628;background:#f8f9ff;outline:none}
-.form-submit{width:100%;padding:14px;border-radius:3px;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+.form-submit{width:100%;padding:14px;border-radius:3px;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.05em;margin-top:4px;transition:opacity .2s}
+.form-submit:disabled{opacity:.6;cursor:not-allowed}
 .form-note{font-size:11px;color:#888;text-align:center;margin-top:8px}
+.form-success{display:none;text-align:center;padding:20px 0}
+.form-success .s-icon{font-size:52px;margin-bottom:12px}
+.form-success h3{font-family:'Barlow',sans-serif;font-size:22px;color:#0a1628;text-transform:uppercase;margin-bottom:8px}
+.form-success p{font-size:13px;color:#666;line-height:1.6}
 
 /* MARQUEE */
 .mq-wrap{background:var(--red);padding:12px 0;overflow:hidden}
@@ -218,25 +223,36 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   <span class="sec-label">Get In Touch</span>
   <h2 class="sec-title">READY TO SCHEDULE?</h2>
   <div class="form-card">
-    <div class="form-sub">Free estimates · Same-day available · No obligation</div>
-    <div class="fg"><label>Your Name</label><input type="text" placeholder="John Smith"></div>
-    <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(425) 000-0000"></div>
-    <div class="fg"><label>Service Needed</label>
-      <select>
-        <option>Heating Repair</option>
-        <option>AC / Cooling Repair</option>
-        <option>Mini Split Install — $200 OFF</option>
-        <option>Heat Pump Service</option>
-        <option>Furnace Service</option>
-        <option>Smart Thermostat</option>
-        <option>Water Heater</option>
-        <option>Maintenance Plan</option>
-        <option>Free Estimate</option>
-      </select>
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="5e48e536-3d1d-4625-bd20-27626e6d2d85">
+      <input type="hidden" name="subject" value="New Service Request — 405 Heating & Cooling">
+      <input type="hidden" name="from_name" value="405heating.com">
+      <input type="checkbox" name="botcheck" style="display:none">
+      <div class="form-sub">Free estimates · Same-day available · No obligation</div>
+      <div class="fg"><label>Your Name</label><input type="text" name="name" placeholder="John Smith" required></div>
+      <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(425) 000-0000" required></div>
+      <div class="fg"><label>Service Needed</label>
+        <select name="service">
+          <option>Heating Repair</option>
+          <option>AC / Cooling Repair</option>
+          <option>Mini Split Install — $200 OFF</option>
+          <option>Heat Pump Service</option>
+          <option>Furnace Service</option>
+          <option>Smart Thermostat</option>
+          <option>Water Heater</option>
+          <option>Maintenance Plan</option>
+          <option>Free Estimate</option>
+        </select>
+      </div>
+      <div class="fg"><label>Zip Code</label><input type="text" name="zip" placeholder="980XX"></div>
+      <button type="submit" class="form-submit" id="submitBtn">Get Free Estimate →</button>
+      <p class="form-note">📧 405heating@gmail.com · We respond within 1 hour</p>
+    </form>
+    <div class="form-success" id="formSuccess">
+      <div class="s-icon">✅</div>
+      <h3>Request Sent!</h3>
+      <p>Thank you! We received your request and will contact you within 1 hour.<br>Questions? Call us at <strong>425-510-9956</strong>.</p>
     </div>
-    <div class="fg"><label>Zip Code</label><input type="text" placeholder="980XX"></div>
-    <button class="form-submit">Get Free Estimate →</button>
-    <p class="form-note">📧 405heating@gmail.com · We respond within 1 hour</p>
   </div>
 </div>
 
@@ -342,6 +358,39 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   </div>
   <div class="footer-copy">© 2026 405 Heating & Cooling LLC · greater Seattle area · Licensed & Insured</div>
 </footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Get Free Estimate →';
+      alert('Something went wrong. Please call us at 425-510-9956.');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Get Free Estimate →';
+    alert('Something went wrong. Please call us at 425-510-9956.');
+  }
+});
+</script>
 
 </body>
 </html>
