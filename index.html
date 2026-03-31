@@ -28,7 +28,7 @@ a{text-decoration:none;color:inherit}
 /* NAV */
 nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;background:var(--black);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:14px}
-.logo-img{height:48px;width:auto;object-fit:contain}
+.logo-img{height:48px;width:auto;object-fit:contain;flex-shrink:0}
 .logo-name{font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;color:#fff}
 .nav-r{display:flex;align-items:center;gap:16px}
 .nav-phone{font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;color:#fff}
@@ -117,8 +117,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 .cta-section h2{font-size:clamp(36px,6vw,70px);margin-bottom:14px;position:relative}
 .cta-section p{font-size:18px;opacity:.88;margin-bottom:34px;position:relative}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
-.btn-white{padding:17px 36px;border-radius:3px;background:#fff;color:var(--red);border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
-.btn-dark{padding:17px 36px;border-radius:3px;background:rgba(0,0,0,.22);color:#fff;border:2px solid rgba(255,255,255,.32);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+.btn-white{padding:17px 36px;border-radius:3px;background:#fff;color:var(--red);border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em;min-width:260px}
+.btn-dark{padding:17px 36px;border-radius:3px;background:#fff;color:var(--blue-dark);border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em;min-width:260px}
 
 /* FOOTER */
 footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:3px solid var(--red)}
@@ -128,7 +128,7 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
 .footer-contact a{color:var(--muted)}
 .footer-copy{font-size:11px;color:#3a4a60}
 
-/* RESPONSIVE */
+/* RESPONSIVE 960px */
 @media(max-width:960px){
   nav{padding:0 20px}
   .hero-banner{padding:28px 24px}
@@ -143,10 +143,21 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   footer{padding:28px 24px;flex-direction:column;align-items:flex-start}
   .footer-contact{flex-direction:column;gap:8px}
 }
+
+/* MOBILE 600px */
 @media(max-width:600px){
+  /* Nav: hide phone, compact layout */
+  nav{height:auto;padding:10px 16px}
+  .nav-phone{display:none}
+  .logo-name{font-size:17px;max-width:120px;line-height:1.25}
+  .logo-img{height:42px}
+  /* Hero */
   .hero-banner-inner{flex-direction:column;text-align:center}
   .hero-banner-logo{height:150px}
+  /* Why grid */
   .why-grid{grid-template-columns:1fr}
+  /* CTA buttons full width */
+  .btn-white,.btn-dark{min-width:0;width:100%;max-width:320px}
 }
 </style>
 </head>
