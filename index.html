@@ -16,7 +16,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --red:#e8190a;--red2:#ff3d2e;
-  --blue:#1a9fc4;--blue-dark:#0a1628;--blue2:#0d2040;--blue3:#102756;
+  --blue:#1a9fc4;--blue-dark:#0a1628;--blue2:#0d2040;
   --black:#111;--text:#fff;--muted:#8fa0bf;
   --border:rgba(255,255,255,0.1);
 }
@@ -29,34 +29,18 @@ a{text-decoration:none;color:inherit}
 nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;background:var(--black);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:14px}
 .logo-img{height:48px;width:auto;object-fit:contain}
-.logo-name{font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;line-height:1.1;color:#fff}
+.logo-name{font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;color:#fff}
 .nav-r{display:flex;align-items:center;gap:16px}
 .nav-phone{font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;color:#fff}
 .btn-red{padding:10px 24px;border-radius:3px;background:var(--red);color:#fff;font-family:'Barlow',sans-serif;font-weight:700;font-size:16px;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.04em}
 
-/* HERO BANNER — 1.5x taller, form included */
-.hero-banner{background:var(--red);padding:54px 40px;display:flex;justify-content:center;align-items:stretch}
-.hero-banner-inner{display:flex;align-items:stretch;gap:48px;max-width:1280px;width:100%}
-
-/* Logo column — stretches to full banner height */
-.hero-logo-col{flex-shrink:0;display:flex;align-items:center}
-.hero-banner-logo{height:100%;max-height:320px;min-height:180px;width:auto;object-fit:contain;display:block}
-
-/* Text column */
-.hero-banner-text{flex:1;display:flex;flex-direction:column;justify-content:center}
-.hero-banner-text h1{font-size:clamp(57px,8.25vw,108px);line-height:1;color:#fff;margin-bottom:21px}
-.hero-banner-text .tagline{font-family:'Barlow',sans-serif;font-size:clamp(24px,3.3vw,39px);font-weight:600;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.04em}
-
-/* Form column */
-.hero-form-col{flex-shrink:0;width:360px;display:flex;align-items:center}
-.form-card{background:#fff;border-radius:6px;padding:28px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.35)}
-.form-title{font-family:'Barlow',sans-serif;font-size:22px;color:#0a1628;margin-bottom:4px;font-weight:700;text-transform:uppercase}
-.form-sub{font-size:12px;color:#888;margin-bottom:16px}
-.fg{margin-bottom:11px}
-.fg label{display:block;font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.fg input,.fg select{width:100%;padding:9px 12px;border-radius:3px;border:1.5px solid #dde2ef;font-family:'DM Sans',sans-serif;font-size:14px;color:#0a1628;background:#f8f9ff;outline:none}
-.form-submit{width:100%;padding:13px;border-radius:3px;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
-.form-note{font-size:11px;color:#888;text-align:center;margin-top:8px}
+/* HERO BANNER — like the flyer */
+.hero-banner{background:var(--red);padding:40px 60px;display:flex;justify-content:center}
+.hero-banner-inner{display:flex;align-items:center;gap:56px;max-width:1100px;width:100%}
+.hero-banner-logo{height:220px;width:auto;object-fit:contain;flex-shrink:0}
+.hero-banner-text{display:flex;flex-direction:column;justify-content:center}
+.hero-banner-text h1{font-size:clamp(32px,4vw,58px);line-height:1.05;color:#fff;margin-bottom:16px}
+.hero-banner-text .tagline{font-family:'Barlow',sans-serif;font-size:clamp(16px,2vw,26px);font-weight:600;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.03em}
 
 /* HERO CONTENT */
 .hero-content{background:linear-gradient(135deg,#080e1c 0%,#0d1a30 100%);padding:72px 40px;text-align:center;display:flex;flex-direction:column;align-items:center}
@@ -71,6 +55,18 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 .stats{display:flex;gap:44px;justify-content:center}
 .stat-n{font-family:'Barlow',sans-serif;font-size:44px;font-weight:700;color:var(--red2);line-height:1}
 .stat-l{font-size:12px;color:var(--muted);margin-top:3px;font-weight:500}
+
+/* SCHEDULE SECTION */
+.schedule-section{background:var(--black);padding:70px 40px;display:flex;flex-direction:column;align-items:center}
+.schedule-section .sec-label{font-family:'Barlow',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:10px}
+.schedule-section .sec-title{font-size:clamp(28px,4vw,44px);margin-bottom:36px;text-align:center}
+.form-card{background:#fff;border-radius:6px;padding:30px;width:100%;max-width:480px;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.form-sub{font-size:12px;color:#888;margin-bottom:18px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.fg input,.fg select{width:100%;padding:10px 12px;border-radius:3px;border:1.5px solid #dde2ef;font-family:'DM Sans',sans-serif;font-size:14px;color:#0a1628;background:#f8f9ff;outline:none}
+.form-submit{width:100%;padding:14px;border-radius:3px;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+.form-note{font-size:11px;color:#888;text-align:center;margin-top:8px}
 
 /* MARQUEE */
 .mq-wrap{background:var(--red);padding:12px 0;overflow:hidden}
@@ -143,15 +139,13 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
 .footer-copy{font-size:11px;color:#3a4a60}
 
 /* RESPONSIVE */
-@media(max-width:1100px){
-  .hero-form-col{width:300px}
-}
 @media(max-width:960px){
   nav{padding:0 20px}
-  .hero-banner{padding:36px 20px}
-  .hero-banner-inner{gap:24px}
-  .hero-form-col{width:280px}
+  .hero-banner{padding:28px 24px}
+  .hero-banner-inner{gap:32px}
+  .hero-banner-logo{height:160px}
   .hero-content{padding:52px 24px}
+  .schedule-section{padding:52px 24px}
   .stats{gap:24px}
   .spec-grid,.rev-grid{grid-template-columns:1fr}
   .svc-cols{grid-template-columns:1fr;gap:36px}
@@ -161,11 +155,9 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   footer{padding:28px 24px;flex-direction:column;align-items:flex-start}
   .footer-contact{flex-direction:column;gap:8px}
 }
-@media(max-width:700px){
-  .hero-banner-inner{flex-direction:column;align-items:center;text-align:center}
-  .hero-logo-col{width:100%}
-  .hero-banner-logo{max-height:180px;min-height:unset;width:auto;margin:0 auto}
-  .hero-form-col{width:100%}
+@media(max-width:600px){
+  .hero-banner-inner{flex-direction:column;text-align:center}
+  .hero-banner-logo{height:150px}
   .why-grid{grid-template-columns:1fr}
   .stats{flex-direction:column;gap:16px}
   .hero-btns{flex-direction:column;align-items:center}
@@ -186,42 +178,13 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   </div>
 </nav>
 
-<!-- HERO BANNER: logo + name + form on red background -->
+<!-- HERO BANNER -->
 <div class="hero-banner">
   <div class="hero-banner-inner">
-    <!-- Logo stretches to match text height -->
-    <div class="hero-logo-col">
-      <img src="logo_clean_fixed.png" alt="405 Heating & Cooling" class="hero-banner-logo">
-    </div>
-    <!-- Company name & tagline -->
+    <img src="logo_clean_fixed.png" alt="405 Heating & Cooling" class="hero-banner-logo">
     <div class="hero-banner-text">
-      <h1>405 HEATING<br>& COOLING LLC</h1>
+      <h1>405 HEATING & COOLING LLC</h1>
       <div class="tagline">Your local HVAC service</div>
-    </div>
-    <!-- Schedule form -->
-    <div class="hero-form-col">
-      <div class="form-card" id="schedule">
-        <div class="form-title">Schedule Service</div>
-        <div class="form-sub">Free estimates · Same-day available · No obligation</div>
-        <div class="fg"><label>Your Name</label><input type="text" placeholder="John Smith"></div>
-        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(425) 000-0000"></div>
-        <div class="fg"><label>Service Needed</label>
-          <select>
-            <option>Heating Repair</option>
-            <option>AC / Cooling Repair</option>
-            <option>Mini Split Install — $200 OFF</option>
-            <option>Heat Pump Service</option>
-            <option>Furnace Service</option>
-            <option>Smart Thermostat</option>
-            <option>Water Heater</option>
-            <option>Maintenance Plan</option>
-            <option>Free Estimate</option>
-          </select>
-        </div>
-        <div class="fg"><label>Zip Code</label><input type="text" placeholder="980XX"></div>
-        <button class="form-submit">Get Free Estimate →</button>
-        <p class="form-note">📧 405heating@gmail.com · We respond within 1 hour</p>
-      </div>
     </div>
   </div>
 </div>
@@ -239,6 +202,33 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
     <div><div class="stat-n">$200</div><div class="stat-l">Off Mini Split Install</div></div>
     <div><div class="stat-n">$50</div><div class="stat-l">Off Any Repair Call</div></div>
     <div><div class="stat-n">FREE</div><div class="stat-l">Estimates</div></div>
+  </div>
+</div>
+
+<!-- SCHEDULE FORM -->
+<div class="schedule-section" id="schedule">
+  <span class="sec-label">Get In Touch</span>
+  <h2 class="sec-title">SCHEDULE SERVICE</h2>
+  <div class="form-card">
+    <div class="form-sub">Free estimates · Same-day available · No obligation</div>
+    <div class="fg"><label>Your Name</label><input type="text" placeholder="John Smith"></div>
+    <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(425) 000-0000"></div>
+    <div class="fg"><label>Service Needed</label>
+      <select>
+        <option>Heating Repair</option>
+        <option>AC / Cooling Repair</option>
+        <option>Mini Split Install — $200 OFF</option>
+        <option>Heat Pump Service</option>
+        <option>Furnace Service</option>
+        <option>Smart Thermostat</option>
+        <option>Water Heater</option>
+        <option>Maintenance Plan</option>
+        <option>Free Estimate</option>
+      </select>
+    </div>
+    <div class="fg"><label>Zip Code</label><input type="text" placeholder="980XX"></div>
+    <button class="form-submit">Get Free Estimate →</button>
+    <p class="form-note">📧 405heating@gmail.com · We respond within 1 hour</p>
   </div>
 </div>
 
