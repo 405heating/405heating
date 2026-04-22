@@ -128,7 +128,34 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
 .footer-contact a{color:var(--muted)}
 .footer-copy{font-size:11px;color:#3a4a60}
 
+/* OUR WORK */
+.ourwork-section{background:var(--blue2)}
+.ourwork-toggle{width:100%;padding:26px 40px;background:var(--blue2);color:#fff;border:none;border-top:3px solid var(--red);border-bottom:3px solid rgba(255,255,255,.07);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:clamp(22px,3vw,34px);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:14px;transition:background .2s}
+.ourwork-toggle:hover{background:#1e2d50}
+.ow-arrow{display:inline-block;transition:transform .35s;font-size:.8em}
+.ourwork-toggle.open .ow-arrow{transform:rotate(180deg)}
+.ourwork-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.ourwork-body.open{max-height:1400px}
+.ourwork-inner{padding:60px 40px}
+.cat-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.cat-tab{padding:11px 26px;border-radius:3px;background:transparent;color:var(--muted);border:2px solid rgba(255,255,255,.12);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.07em;transition:all .18s}
+.cat-tab:hover{border-color:var(--blue);color:#fff}
+.cat-tab.active{background:var(--red);color:#fff;border-color:var(--red)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.work-card{border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.work-ph{aspect-ratio:4/3;background:#0a1628;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.25);font-size:13px}
+.wph-icon{font-size:36px;opacity:.4}
+.work-cap{padding:10px 14px;background:#0d1e35;font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+
 /* RESPONSIVE 960px */
+@media(max-width:960px){
+  .ourwork-inner{padding:44px 24px}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .ourwork-toggle{padding:20px 16px}
+  .work-grid{grid-template-columns:1fr}
+}
 @media(max-width:960px){
   nav{padding:0 20px}
   .hero-banner{padding:28px 24px}
@@ -316,6 +343,40 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   </div>
 </div>
 
+<!-- OUR WORK -->
+<div class="ourwork-section" id="ourwork">
+  <button class="ourwork-toggle" id="owToggle">
+    <span>OUR WORK</span>
+    <span class="ow-arrow">▼</span>
+  </button>
+  <div class="ourwork-body" id="owBody">
+    <div class="ourwork-inner">
+      <span class="eyebrow" style="display:block;text-align:center;margin-bottom:8px">Portfolio</span>
+      <h2 class="sec-h" style="text-align:center;margin-bottom:36px">COMPLETED PROJECTS</h2>
+      <div class="cat-tabs">
+        <button class="cat-tab active" data-cat="furnaces">Furnaces</button>
+        <button class="cat-tab" data-cat="ac">Air Conditioners</button>
+        <button class="cat-tab" data-cat="minisplit">Mini Splits</button>
+        <button class="cat-tab" data-cat="heatpump">Heat Pumps</button>
+      </div>
+      <div class="work-grid" id="workGrid">
+        <div class="work-card" data-cat="furnaces"><div class="work-ph"><span class="wph-icon">🔥</span><span>Photo coming soon</span></div><div class="work-cap">Furnace Install · Bellevue, WA</div></div>
+        <div class="work-card" data-cat="furnaces"><div class="work-ph"><span class="wph-icon">🔥</span><span>Photo coming soon</span></div><div class="work-cap">Furnace Replacement · Kirkland, WA</div></div>
+        <div class="work-card" data-cat="furnaces"><div class="work-ph"><span class="wph-icon">🔥</span><span>Photo coming soon</span></div><div class="work-cap">Furnace Repair · Bothell, WA</div></div>
+        <div class="work-card" data-cat="ac" style="display:none"><div class="work-ph"><span class="wph-icon">❄️</span><span>Photo coming soon</span></div><div class="work-cap">AC Install · Bellevue, WA</div></div>
+        <div class="work-card" data-cat="ac" style="display:none"><div class="work-ph"><span class="wph-icon">❄️</span><span>Photo coming soon</span></div><div class="work-cap">AC Service · Redmond, WA</div></div>
+        <div class="work-card" data-cat="ac" style="display:none"><div class="work-ph"><span class="wph-icon">❄️</span><span>Photo coming soon</span></div><div class="work-cap">AC Replacement · Kirkland, WA</div></div>
+        <div class="work-card" data-cat="minisplit" style="display:none"><div class="work-ph"><span class="wph-icon">💨</span><span>Photo coming soon</span></div><div class="work-cap">Mini Split Install · Bellevue, WA</div></div>
+        <div class="work-card" data-cat="minisplit" style="display:none"><div class="work-ph"><span class="wph-icon">💨</span><span>Photo coming soon</span></div><div class="work-cap">Mini Split Install · Bothell, WA</div></div>
+        <div class="work-card" data-cat="minisplit" style="display:none"><div class="work-ph"><span class="wph-icon">💨</span><span>Photo coming soon</span></div><div class="work-cap">Multi-Zone Install · Kirkland, WA</div></div>
+        <div class="work-card" data-cat="heatpump" style="display:none"><div class="work-ph"><span class="wph-icon">🌡️</span><span>Photo coming soon</span></div><div class="work-cap">Heat Pump Install · Bellevue, WA</div></div>
+        <div class="work-card" data-cat="heatpump" style="display:none"><div class="work-ph"><span class="wph-icon">🌡️</span><span>Photo coming soon</span></div><div class="work-cap">Heat Pump Replacement · Redmond, WA</div></div>
+        <div class="work-card" data-cat="heatpump" style="display:none"><div class="work-ph"><span class="wph-icon">🌡️</span><span>Photo coming soon</span></div><div class="work-cap">Heat Pump Service · Kirkland, WA</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- STRIP -->
 <div class="strip">
   <div class="strip-text">
@@ -399,6 +460,24 @@ document.getElementById('contactForm').addEventListener('submit', async function
     btn.textContent = 'Get Free Estimate →';
     alert('Something went wrong. Please call us at 425-510-9956.');
   }
+});
+
+// Our Work expand/collapse
+document.getElementById('owToggle').addEventListener('click', function() {
+  this.classList.toggle('open');
+  document.getElementById('owBody').classList.toggle('open');
+});
+
+// Category filter
+document.querySelectorAll('.cat-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.cat-tab').forEach(function(t) { t.classList.remove('active'); });
+    this.classList.add('active');
+    var cat = this.dataset.cat;
+    document.querySelectorAll('.work-card').forEach(function(card) {
+      card.style.display = card.dataset.cat === cat ? 'block' : 'none';
+    });
+  });
 });
 </script>
 
