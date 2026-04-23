@@ -103,7 +103,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 /* REVIEWS */
 .reviews{padding:80px 40px;background:#0a0f1c}
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
-.rev-card{background:var(--blue2);border:1px solid var(--border);border-radius:4px;padding:26px;border-top:3px solid var(--red)}
+.rev-card{background:var(--blue2);border:1px solid var(--border);border-radius:4px;padding:26px;border-top:3px solid var(--red);display:block;cursor:pointer;transition:transform .2s,border-color .2s}
+.rev-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.25)}
 .stars{color:#FFB800;font-size:13px;margin-bottom:14px;letter-spacing:3px}
 .rev-text{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px}
 .rev-info{display:flex;align-items:center;gap:12px}
@@ -388,21 +389,21 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   <span class="eyebrow">Customer Reviews</span>
   <h2 class="sec-h">WHAT OUR CUSTOMERS SAY</h2>
   <div class="rev-grid">
-    <div class="rev-card">
+    <a class="rev-card" href="https://share.google/db0usXC0GJtN12XbY" target="_blank" rel="noopener">
       <div class="stars">★★★★★</div>
       <p class="rev-text">"I called them because my AC heating was acting up and kept stopping frequently. They responded incredibly fast and the whole process was very smooth from start to finish. They fixed the issue quickly, and the price was great. Highly recommend!"</p>
       <div class="rev-info"><div class="rev-ava">RG</div><div><div class="rev-name">Roman Gehtberg</div><div class="rev-meta">Google Review · 11 weeks ago</div></div></div>
-    </div>
-    <div class="rev-card">
+    </a>
+    <a class="rev-card" href="https://share.google/db0usXC0GJtN12XbY" target="_blank" rel="noopener">
       <div class="stars">★★★★★</div>
       <p class="rev-text">"They installed our heat pump and recently came to troubleshoot it. Very quick, thorough and professional."</p>
       <div class="rev-info"><div class="rev-ava">CN</div><div><div class="rev-name">Chien Nguyen</div><div class="rev-meta">Google Review · 3 weeks ago</div></div></div>
-    </div>
-    <div class="rev-card">
+    </a>
+    <a class="rev-card" href="https://share.google/db0usXC0GJtN12XbY" target="_blank" rel="noopener">
       <div class="stars">★★★★★</div>
       <p class="rev-text">"I contacted this heating services, and the specialist Alex responded very quickly. He arrived without delay, immediately understood the problem, and explained everything calmly and clearly, without imposing unnecessary services. He performed the work carefully and promptly, and the system now works as it should. I can recommend this company."</p>
       <div class="rev-info"><div class="rev-ava">AN</div><div><div class="rev-name">Anthony</div><div class="rev-meta">Google Review · 11 weeks ago</div></div></div>
-    </div>
+    </a>
   </div>
 </div>
 
