@@ -103,7 +103,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px
 /* REVIEWS */
 .reviews{padding:80px 40px;background:#0a0f1c}
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
-.rev-card{background:var(--blue2);border:1px solid var(--border);border-radius:4px;padding:26px;border-top:3px solid var(--red)}
+.rev-card{background:var(--blue2);border:1px solid var(--border);border-radius:4px;padding:26px;border-top:3px solid var(--red);display:block;cursor:pointer;transition:transform .2s,border-color .2s}
+.rev-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.25)}
 .stars{color:#FFB800;font-size:13px;margin-bottom:14px;letter-spacing:3px}
 .rev-text{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px}
 .rev-info{display:flex;align-items:center;gap:12px}
@@ -130,21 +131,22 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
 
 /* OUR WORK */
 .ourwork-section{background:var(--blue2)}
-.ourwork-toggle{width:100%;padding:26px 40px;background:var(--blue2);color:#fff;border:none;border-top:3px solid var(--red);border-bottom:3px solid rgba(255,255,255,.07);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:clamp(22px,3vw,34px);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:14px;transition:background .2s}
-.ourwork-toggle:hover{background:#1e2d50}
+.ourwork-toggle{width:100%;padding:26px 40px;background:var(--blue);color:#fff;border:none;border-top:none;border-bottom:3px solid rgba(255,255,255,.15);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:clamp(22px,3vw,34px);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:14px;transition:background .2s}
+.ourwork-toggle:hover{background:#158fb4}
 .ow-arrow{display:inline-block;transition:transform .35s;font-size:.8em}
 .ourwork-toggle.open .ow-arrow{transform:rotate(180deg)}
-.ourwork-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
-.ourwork-body.open{max-height:1400px}
-.ourwork-inner{padding:60px 40px}
-.cat-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
-.cat-tab{padding:11px 26px;border-radius:3px;background:transparent;color:var(--muted);border:2px solid rgba(255,255,255,.12);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.07em;transition:all .18s}
+.ourwork-body{max-height:0;overflow:hidden;transition:max-height .5s ease;background:var(--blue2)}
+.ourwork-body.open{max-height:4000px}
+.ourwork-inner{padding:36px 40px}
+.cat-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:36px}
+.cat-tab{padding:11px 10px;border-radius:3px;background:transparent;color:var(--muted);border:2px solid rgba(255,255,255,.12);cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.07em;transition:all .18s;text-align:center}
 .cat-tab:hover{border-color:var(--blue);color:#fff}
 .cat-tab.active{background:var(--red);color:#fff;border-color:var(--red)}
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .work-card{border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
-.work-ph{aspect-ratio:4/3;background:#0a1628;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.25);font-size:13px}
+.work-ph{aspect-ratio:3/4;background:#0a1628;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.25);font-size:13px}
 .wph-icon{font-size:36px;opacity:.4}
+.work-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
 .work-cap{padding:10px 14px;background:#0d1e35;font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
 
 /* RESPONSIVE 960px */
@@ -155,6 +157,8 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
 @media(max-width:600px){
   .ourwork-toggle{padding:20px 16px}
   .work-grid{grid-template-columns:1fr}
+  .cat-tabs{grid-template-columns:1fr 1fr}
+  .ourwork-inner{padding:24px 16px}
 }
 @media(max-width:960px){
   nav{padding:0 20px}
@@ -213,7 +217,7 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
 <!-- 2. WHAT WE DO -->
 <div class="services" id="services">
   <span class="eyebrow">What We Do</span>
-  <h2 class="sec-h">WE FIX & INSTALL2</h2>
+  <h2 class="sec-h">WE FIX & INSTALL</h2>
   <div class="svc-cols">
     <div class="svc-group">
       <h3>We Fix & Install</h3>
@@ -236,6 +240,38 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
         <li>New Construction</li>
         <li>System Replacement</li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<!-- OUR WORK -->
+<div class="ourwork-section" id="ourwork">
+  <button class="ourwork-toggle" id="owToggle">
+    <span>COMPLETED PROJECTS</span>
+    <span class="ow-arrow">▼</span>
+  </button>
+  <div class="ourwork-body" id="owBody">
+    <div class="ourwork-inner">
+      <div class="cat-tabs">
+        <button class="cat-tab active" data-cat="furnaces">Furnaces</button>
+        <button class="cat-tab" data-cat="ac">Air Conditioners</button>
+        <button class="cat-tab" data-cat="minisplit">Mini Splits</button>
+        <button class="cat-tab" data-cat="heatpump">Heat Pumps</button>
+      </div>
+      <div class="work-grid" id="workGrid">
+        <div class="work-card" data-cat="furnaces"><img src="furnace2.jpeg" alt="Furnace Replacement · Everett, WA" class="work-img"><div class="work-cap">Furnace Replacement · Everett, WA</div></div>
+        <div class="work-card" data-cat="furnaces"><img src="furnace1.jpeg?v=2" alt="Furnace Replacement · Kirkland, WA" class="work-img"><div class="work-cap">Furnace Replacement · Kirkland, WA</div></div>
+        <div class="work-card" data-cat="furnaces"><img src="furnace3.jpeg" alt="Furnace Replacement · Mount Lake Terrace, WA" class="work-img"><div class="work-cap">Furnace Replacement · Mount Lake Terrace, WA</div></div>
+        <div class="work-card" data-cat="ac" style="display:none"><img src="ac1.jpeg" alt="Air Conditioner with Furnace Installation · Everett, WA" class="work-img"><div class="work-cap">Air Conditioner with Furnace Installation · Everett, WA</div></div>
+        <div class="work-card" data-cat="ac" style="display:none"><img src="ac2.jpeg" alt="Air Conditioner with Furnace Installation · Everett, WA" class="work-img"><div class="work-cap">Air Conditioner with Furnace Installation · Everett, WA</div></div>
+        <div class="work-card" data-cat="ac" style="display:none"><img src="ac3.jpeg" alt="Air Conditioner Installation · Mount Lake Terrace, WA" class="work-img"><div class="work-cap">Air Conditioner Installation · Mount Lake Terrace, WA</div></div>
+        <div class="work-card" data-cat="minisplit" style="display:none"><img src="split9.jpeg" alt="3 Zone Mini-Split System · Lynnwood, WA" class="work-img"><div class="work-cap">3 Zone Mini-Split System · Lynnwood, WA</div></div>
+        <div class="work-card" data-cat="minisplit" style="display:none"><img src="split5.jpeg" alt="3 Zone Mini-Split System Install · Seattle, WA" class="work-img"><div class="work-cap">3 Zone Mini-Split System Install · Seattle, WA</div></div>
+        <div class="work-card" data-cat="minisplit" style="display:none"><img src="split8.jpeg" alt="2 Zone Mini-Split System Install · Redmond, WA" class="work-img"><div class="work-cap">2 Zone Mini-Split System Install · Redmond, WA</div></div>
+        <div class="work-card" data-cat="heatpump" style="display:none"><img src="heatpmp1.jpeg" alt="Heat Pump Installation · Seattle, WA" class="work-img"><div class="work-cap">Heat Pump Installation · Seattle, WA</div></div>
+        <div class="work-card" data-cat="heatpump" style="display:none"><img src="heatpmp2.jpeg" alt="Heat Pump Installation · Seattle, WA" class="work-img"><div class="work-cap">Heat Pump Installation · Seattle, WA</div></div>
+        <div class="work-card" data-cat="heatpump" style="display:none"><img src="heatpmp3.jpeg" alt="Heat Pump Installation · Seattle, WA" class="work-img"><div class="work-cap">Heat Pump Installation · Seattle, WA</div></div>
+      </div>
     </div>
   </div>
 </div>
@@ -340,40 +376,6 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   </div>
 </div>
 
-<!-- OUR WORK -->
-<div class="ourwork-section" id="ourwork">
-  <button class="ourwork-toggle" id="owToggle">
-    <span>OUR WORK</span>
-    <span class="ow-arrow">▼</span>
-  </button>
-  <div class="ourwork-body" id="owBody">
-    <div class="ourwork-inner">
-      <span class="eyebrow" style="display:block;text-align:center;margin-bottom:8px">Portfolio</span>
-      <h2 class="sec-h" style="text-align:center;margin-bottom:36px">COMPLETED PROJECTS</h2>
-      <div class="cat-tabs">
-        <button class="cat-tab active" data-cat="furnaces">Furnaces</button>
-        <button class="cat-tab" data-cat="ac">Air Conditioners</button>
-        <button class="cat-tab" data-cat="minisplit">Mini Splits</button>
-        <button class="cat-tab" data-cat="heatpump">Heat Pumps</button>
-      </div>
-      <div class="work-grid" id="workGrid">
-        <div class="work-card" data-cat="furnaces"><div class="work-ph"><span class="wph-icon">🔥</span><span>Photo coming soon</span></div><div class="work-cap">Furnace Install · Bellevue, WA</div></div>
-        <div class="work-card" data-cat="furnaces"><div class="work-ph"><span class="wph-icon">🔥</span><span>Photo coming soon</span></div><div class="work-cap">Furnace Replacement · Kirkland, WA</div></div>
-        <div class="work-card" data-cat="furnaces"><div class="work-ph"><span class="wph-icon">🔥</span><span>Photo coming soon</span></div><div class="work-cap">Furnace Repair · Bothell, WA</div></div>
-        <div class="work-card" data-cat="ac" style="display:none"><div class="work-ph"><span class="wph-icon">❄️</span><span>Photo coming soon</span></div><div class="work-cap">AC Install · Bellevue, WA</div></div>
-        <div class="work-card" data-cat="ac" style="display:none"><div class="work-ph"><span class="wph-icon">❄️</span><span>Photo coming soon</span></div><div class="work-cap">AC Service · Redmond, WA</div></div>
-        <div class="work-card" data-cat="ac" style="display:none"><div class="work-ph"><span class="wph-icon">❄️</span><span>Photo coming soon</span></div><div class="work-cap">AC Replacement · Kirkland, WA</div></div>
-        <div class="work-card" data-cat="minisplit" style="display:none"><div class="work-ph"><span class="wph-icon">💨</span><span>Photo coming soon</span></div><div class="work-cap">Mini Split Install · Bellevue, WA</div></div>
-        <div class="work-card" data-cat="minisplit" style="display:none"><div class="work-ph"><span class="wph-icon">💨</span><span>Photo coming soon</span></div><div class="work-cap">Mini Split Install · Bothell, WA</div></div>
-        <div class="work-card" data-cat="minisplit" style="display:none"><div class="work-ph"><span class="wph-icon">💨</span><span>Photo coming soon</span></div><div class="work-cap">Multi-Zone Install · Kirkland, WA</div></div>
-        <div class="work-card" data-cat="heatpump" style="display:none"><div class="work-ph"><span class="wph-icon">🌡️</span><span>Photo coming soon</span></div><div class="work-cap">Heat Pump Install · Bellevue, WA</div></div>
-        <div class="work-card" data-cat="heatpump" style="display:none"><div class="work-ph"><span class="wph-icon">🌡️</span><span>Photo coming soon</span></div><div class="work-cap">Heat Pump Replacement · Redmond, WA</div></div>
-        <div class="work-card" data-cat="heatpump" style="display:none"><div class="work-ph"><span class="wph-icon">🌡️</span><span>Photo coming soon</span></div><div class="work-cap">Heat Pump Service · Kirkland, WA</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- STRIP -->
 <div class="strip">
   <div class="strip-text">
@@ -388,21 +390,21 @@ footer{background:#060d1a;padding:34px 40px;display:flex;align-items:center;just
   <span class="eyebrow">Customer Reviews</span>
   <h2 class="sec-h">WHAT OUR CUSTOMERS SAY</h2>
   <div class="rev-grid">
-    <div class="rev-card">
+    <a class="rev-card" href="https://share.google/db0usXC0GJtN12XbY" target="_blank" rel="noopener">
       <div class="stars">★★★★★</div>
-      <p class="rev-text">"Furnace stopped on the coldest night of the year. 405 Heating came out same day, diagnosed the problem fast and the price was completely fair. Highly recommend!"</p>
-      <div class="rev-info"><div class="rev-ava">MK</div><div><div class="rev-name">Mike K.</div><div class="rev-meta">Google Review · Bellevue, WA</div></div></div>
-    </div>
-    <div class="rev-card">
+      <p class="rev-text">"I called them because my AC heating was acting up and kept stopping frequently. They responded incredibly fast and the whole process was very smooth from start to finish. They fixed the issue quickly, and the price was great. Highly recommend!"</p>
+      <div class="rev-info"><div class="rev-ava">RG</div><div><div class="rev-name">Roman Gehtberg</div><div class="rev-meta">Google Review · 11 weeks ago</div></div></div>
+    </a>
+    <a class="rev-card" href="https://share.google/db0usXC0GJtN12XbY" target="_blank" rel="noopener">
       <div class="stars">★★★★★</div>
-      <p class="rev-text">"Got a mini split installed and used the $200 off deal — it was real! Great crew, clean work, finished in one day. Already sent three neighbors their way."</p>
-      <div class="rev-info"><div class="rev-ava">SR</div><div><div class="rev-name">Sarah R.</div><div class="rev-meta">Google Review · Kirkland, WA</div></div></div>
-    </div>
-    <div class="rev-card">
+      <p class="rev-text">"They installed our heat pump and recently came to troubleshoot it. Very quick, thorough and professional."</p>
+      <div class="rev-info"><div class="rev-ava">CN</div><div><div class="rev-name">Chien Nguyen</div><div class="rev-meta">Google Review · 3 weeks ago</div></div></div>
+    </a>
+    <a class="rev-card" href="https://share.google/db0usXC0GJtN12XbY" target="_blank" rel="noopener">
       <div class="stars">★★★★★</div>
-      <p class="rev-text">"Honest company — told me my AC needed a tune-up, not a full replacement. Saved me a ton of money. This is my HVAC company for life."</p>
-      <div class="rev-info"><div class="rev-ava">TL</div><div><div class="rev-name">Tom L.</div><div class="rev-meta">Google Review · Bothell, WA</div></div></div>
-    </div>
+      <p class="rev-text">"I contacted this heating services, and the specialist Alex responded very quickly. He arrived without delay, immediately understood the problem, and explained everything calmly and clearly, without imposing unnecessary services. He performed the work carefully and promptly, and the system now works as it should. I can recommend this company."</p>
+      <div class="rev-info"><div class="rev-ava">AN</div><div><div class="rev-name">Anthony</div><div class="rev-meta">Google Review · 11 weeks ago</div></div></div>
+    </a>
   </div>
 </div>
 
